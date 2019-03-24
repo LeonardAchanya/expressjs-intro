@@ -1,0 +1,21 @@
+.active{
+    color:dodgerblue !important;
+    border-bottom: 2px dodgerblue solid;
+}
+
+.addPhone{
+    text-align: center;
+    padding: 15px;
+}
+
+.space{
+    padding-top: 15px;
+}
+
+.copyright{
+    color: dodgerblue;
+}
+
+footer{
+    padding: 20px;
+}

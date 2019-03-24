@@ -1,0 +1,17 @@
+extends layouts/main_layout.pug
+block content
+    div.container-fluid
+        div.row
+            if allContacts.length > 0
+                each contact in allContacts
+                    div.col-sm-4.space
+                        div(class="card" style="width: 18rem;")
+                            div(class="card-body")
+                                h5(class="card-title") Name: #{contact.name}
+                                p(class="card-subtitle mb-2 text-muted") Phone: #{contact.phone}
+                                p(class="card-subtitle mb-2 text-muted") Email: #{contact.email}
+                                a(href="/edit/"+contact.id class="card-link btn btn-primary") Edit
+                                a(href="/delete/"+contact.id class="card-link btn btn-primary") Delete
+            else
+                div.card
+                h2 No contact saved

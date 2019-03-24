@@ -1,0 +1,19 @@
+extends layouts/main_layout.pug
+block content
+    div.container
+        h2.addPhone Add phone number
+        form(action="/phonebook" method="POST")
+            div(class="form-group")
+                label(for="name") Name
+                input(type="text" name="name" class="form-control form-control-lg")
+
+            div(class="form-group")
+                label(for="phone") Phone number
+                input(type="number", name="phone" class="form-control form-control-lg")
+
+            div(class="form-group")
+                label(for="email") Email
+                input(type="text" name="email" class="form-control form-control-lg")
+
+            div(class="form-group")
+                button(type="submit" class="btn btn-primary") Save

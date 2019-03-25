@@ -1,11 +1,11 @@
 const Contacts = require('../models/contact');
 
 
-exports.AddPhone = (req, res, next) => {
+exports.getAddPhone = (req, res, next) => {
     res.render("phonebook", {pageTitle: "Phonebook", path: req.path });
 }
 
-exports.SubmitPhone = (req, res, next) => {
+exports.PostSubmitPhone = (req, res, next) => {
     const newContact = new Contacts(req.body.name, req.body.phone, req.body.email);
     newContact.save()
         .then(() => {
@@ -14,7 +14,7 @@ exports.SubmitPhone = (req, res, next) => {
         .catch((err) => next(err));
 }
 
-exports.EditPhone = (req, res, next) => {
+exports.getEditPhone = (req, res, next) => {
     const contactId = req.params.id;
     Contacts.getById(contactId)
         .then(([rows, fields]) => {
@@ -24,7 +24,7 @@ exports.EditPhone = (req, res, next) => {
 
 }
 
-exports.UpdatePhone = (req, res, next) => {
+exports.PostUpdatePhone = (req, res, next) => {
     Contacts.UpdateById(req.body.name,req.body.phone,req.body.email,req.params.id)
         .then(() => {
             res.redirect("/");
@@ -32,7 +32,7 @@ exports.UpdatePhone = (req, res, next) => {
         .catch((err) => next(err));
 }
 
-exports.DeletebyId = (req, res, next) => {
+exports.getDeletebyId = (req, res, next) => {
     const contactId = req.params.id;
     Contacts.DeleteById(contactId)
         .then(() => {
